@@ -1,21 +1,29 @@
 <!doctype html>
 <head>
+    <title>What's Your Worth?</title>
+    <link rel="shortcut icon" type="image/png" href="https://www.favicon.cc/logo3d/811757.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <div style ="padding:15px;">
 </div>
+<div class="container">
+<h1 align = "left"><a href = "https://www.jackbibi.dev/">Home</a></h1>
+</div>
+<div style ="padding:15px;">
+</div>
 
 <div class="container">
     <div class="jumbotron text-center">
-        <h1>Salary Estimator</h1> 
+        <h1>Salary Estimator</h1>
         <p>Please enter the text from your resume</p>
     </div>
-    
-    
+
+
     <form method="POST" action="{{ url_for('result') }}" enctype = "multipart/form-data">
-        
+
+        <h4>Please Upload a file</h4>
         <div  class="input-group mb-3" enctype=multipart/form-data>
             <div class="input-group-prepend">
                 <span class="input-group-text">Upload</span>
@@ -25,24 +33,35 @@
                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
             </div>
         </div>
-            
+            <p>(pdf, docx, txt)<p>
+
+        <p><strong>Or copy & Paste your resume here</strong></p>
         <div class="form-group">
             <input id="msg" type="text" class="form-control" type="text" placeholder = 'Enter resume as plain text' name="text" >
         </div>
-            
-            
+
+        <h3>Choose Your Model</h3>
         <div class="select", style="margin-top:10px; margin-bottom:10px;">
             <select name="model_select" class="form-control">
             {% for o in data %}
              <option value="{{ o.name }}">{{ o.name }}</option>
             {% endfor %}
             </select>
+            </div>
+        <h3>Would you like to use Polynomial Features or Original?</h3>
+            <div class="select", style="margin-top:10px; margin-bottom:10px;">
+            <select name="type_select" class="form-control">
+            {% for o in model_type %}
+             <option value="{{ o.name }}">{{ o.name }}</option>
+            {% endfor %}
+            </select>
         </div>
-        
-        
+
+
         <div>
             <button type="submit" class="btn btn-success btn-block">Go</button>
         </div>
-            
+        <p>* if you decide to upload your resume as a file, it will be saved on my server for future projects</p>
+
     </form>
 </div>

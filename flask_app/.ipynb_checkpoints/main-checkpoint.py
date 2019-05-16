@@ -23,10 +23,9 @@ def index():
     return render_template(
         'salary.html',
         data=[{'name':'Linear Regression'}, {'name':'Lasso'}, {'name':'Ridge'},
-        {'name':'Random Forest'}, {'name':'Gradient Boost'}, {'name':'Neural Network'},
-        {'name':'Linear Regression Poly'}, {'name':'Lasso Poly'}, {'name':'Ridge Poly'},
-        {'name':'Random Forest Poly'}, {'name':'Gradient Boost Poly'},
-              {'name':'Neural Network Poly'}])
+        {'name':'Random Forest'}, {'name':'Gradient Boost'}, {'name':'Neural Network'}],
+        model_type = [{'name':'Regular'},{'name':'Poly'}])
+
 @app.route("/result" , methods=['GET', 'POST'])
 def result():
     error = None
@@ -50,6 +49,9 @@ def result():
             text = textract.process(filepath)
             os.remove(filepath)
     model = request.form.get('model_select')
+    types = request.form.get('model_type')
+    if types == 'Poly':
+        model = model+' Poly'
     text = str(text).lower()
     resp = run_tester(text,model)
     data = resp
