@@ -48,6 +48,7 @@ def result():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
             text = textract.process(filepath)
+            os.remove(filepath)
     model = request.form.get('model_select')
     text = str(text).lower()
     resp = run_tester(text,model)

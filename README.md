@@ -1,34 +1,42 @@
 # Job & Resume Salary Predictor
 
-
-
-
-
-# Table of Contents
-- ## Scrape the Data
-  - ### [Web Scraper](./get_data/get_the_data.ipynb)
-- ## Original
-  - ### [Data Cleaning](./run_models/original/Data_Cleaning.ipynb)
-  - ### [Modeling](./Models.ipynb)
-- ## Poly
-    - ### [Data Cleaning](./run_models/poly/Data_Cleaning.ipynb)
-    - ### [Modeling](./Models.ipynb)
-- ## [Flask App](./app)
-  - ### [main.py](.app/main.py)
-- ## Extras
-  - ### [Skill Recommender](./run_models/Skill_Recommender.ipynb)
-  - ### [Word Coefficients](./run_models/Get_Coefficients.ipynb)
-
-      
-      
-      
-
-<h1 align = "center">How much am I worth? <h1>
+<div>
+<h3 align = "center">Table of Contents</h3>
+<ol>
+<li>Scrape the Data</li>
+    <ul>
+        <li><a href = "./get_data/get_the_data.ipynb">Web Scraper</a></li>
+    </ul>
+<li>Original</li>
+    <ul>
+      <li><a href = "./run_models/original/Data_Cleaning.ipynb">Data Cleaning</a></li>
+      <li><a href = "./Models.ipynb">Modeling</a></li>
+    </ul>
+<li>Poly</li>
+    <ul>
+        <li><a href = "./run_models/poly/Data_Cleaning.ipynb">Data Cleaning</a></li>
+        <li><a href = "./Models.ipynb">Modeling</a></li>
+    </ul>
+<li><a href = "./flask_app">Flask App</a></li>
+    <ul>
+        <li><a href = "./flask_app/main.py">main.py</a></li>
+    </ul>
+<li>Extras</li>
+    <ul>
+        <li><a href = "./run_models/Skill_Recommender.ipynb">Skill Recommender</a></li>
+        <li><a href = "./run_models/Get_Coefficients.ipynb">Word Coefficients</a></li>
+    </ul>
+    </ol>
+    </div>
+<h2 align = "center">How much am I worth? </h2>
 <h3 align = "center"><i>The hardest part of job hunting is when the recruiter turns to you and says<br> “So, what kind of salary are you looking for?”</i></h3>
 
-At this moment my heart dropped and I started to flip through the story of my life. I realized that when put on the spot, I only think of the negative parts of my life instead of all the great things that I have done. 
+Upon hearing this question, my heart dropped and I started to flip through the storybook of my life. I realized that when put on the spot, I only think of the negative parts of my life instead of all the great things that I have done. 
 
-This was a great idea! A model that can take in either a resume or a job posting as an input and the output would be a salary or salary range. 
+I know that we are all affected by our prior experiences, sometimes with more emphasis on the mistakes than successes. With this in mind, how can I objectively measure my experiences and skills? In other words- can I build a tool that will accurately quantify my achievements, skills and experience in a way that translates to a dollar amount?
+
+This was a great idea! A model that can take in either a resume or a job posting as an input and the output would be a salary or salary range- all without me having to worry about the subjective nature of my experiences.
+
 ## [Original](./run_models/original)
 ### [Data Aqcuisition](./get_data)
 
@@ -83,7 +91,7 @@ I winded up using Ridge, Lasso, Random Forest, Gradient Boost, and even a Neural
 
 For all of these models, my metric was ```Root Mean Square Error```. 
 
-Glassdoor’s normal range ± $32,214 
+```Glassdoor’s normal range``` ± $32,214 
       
 ```Linear Regression``` ±  $30,595 
 
@@ -108,19 +116,19 @@ In addition to what was done in the [data acquisition process before](#Original)
 
 Becuase the words were being multiplied, I realized that the vectorizer would need to be tweeked and the ```Binary``` hyper-paramter would need to be set to ```False```
 
-After performing this, we ended up with over **39,000** features ($198 ^2$ ). This is a lot of features to throw into a model so I turned to **Sklearn's** Principal Component Analysis (PCA) function. This technique allows you to select the features that are important while still keeping 95% of variance. After running our **39,000** features through a PCA, we came out with **964** features.
+After performing this, we ended up with over **\$39,000** features ($198 ^2$ ). This is a lot of features to throw into a model so I turned to **Sklearn's** Principal Component Analysis (PCA) function. This technique allows you to select the features that are important while still keeping 95% of variance. After running our **39,000** features through a PCA, we came out with **964** features.
 
 ### [Statistical Modeling](./run_models/poly/Models.ipynb)
 
 Like before, now that the data was ready to be put through a stats model, I performed a train_test_split on it and ran it through all of 6 of the models.
 
-Glassdoor’s normal range ± $32,214 
+```Glassdoor’s normal range``` ± $ 32,214 
       
-```Linear Regression``` ±  $25,390 
+```Linear Regression``` ±  $ 25,390 
 
 ```Lasso``` ± $27,704 
       
-```Ridge``` ± $24,862 
+```Ridge```  ± $24,862 
 
 ```Random Forest``` ± $18,057 
 
@@ -128,8 +136,9 @@ Glassdoor’s normal range ± $32,214
       
 ```Neural Network``` ± $15,194
 
-## Conclusion
-As you can see, the ```Root Mean Squared Error``` for the models are over 18% better scores than our [original work](#Original).
+
+
+
 
 ### [Flask App](./app)
 I worked on a Flask App that allows a user to get their estimated salary in 3 easy steps.
@@ -141,7 +150,7 @@ The app takes the text, prepares the text for the model, runs it through the des
 
 
 I then decided to place my resume inside of the model to see what it predicted. 
-
+<div>
 <table border="1" class="dataframe">  
 <thead> <tr style="text-align: center;"> <th> </th> 
 <th>Linear Regression</th> <th>Lasso</th> <th>Ridge</th> <th>Random Forest</th> <th>Gradient Boost</th> 
@@ -161,7 +170,19 @@ I then decided to place my resume inside of the model to see what it predicted.
 <td>87,647</td> <td>76,896</td> <td>82,104</td> <td>116,140</td> <td>115,486</td> <td>87,074</td>
 </tr> </tbody>
 </table>
-
+</div>
 This is a pretty accurate estimation for entry level jobs as a Data Scientist / Data Analyst in New York City. 
 
+## Conclusion
+As you can see, the ```Root Mean Squared Error``` for the models are over 18% better scores than our [original work](#Original) and over 33% better than Glassdoor's! 
 
+I am happy with how this project turned out and I see a lot of room to grow this project.
+
+Some of my ideas are:
+
+- Running the model on other types of jobs (Not just tech)
+- Having the flask app output suggestions such as:
+  - Suggested job title based on your resume.
+  - Suggested words to use in your resume.
+  - Suggested job postings that best fit your resume.
+  - Suggested skills to acquire to make yourself more valuable.
