@@ -14,7 +14,15 @@
         <h2>With an average of</h2>
         <h1>${{ data [0][0]}}</h1>
     </div>
+   
         <form action="/">
-            <button type="submit" class="btn btn-success btn-block">Try Again</button>
+            <button type="submit" class="btn btn-success btn-block">Back</button>
         </form>
+
+    <div class= "text-center">
+        <h2> Your salary throughout all models</h2>
+        <div>
+            {{table|safe}}
+        </div>
+    </div>
 </div>

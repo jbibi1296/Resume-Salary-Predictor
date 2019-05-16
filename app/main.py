@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from flask import Flask, flash, redirect, render_template, request, url_for
 from salary import run_tester
+from salary import get_table
 import textract
 import os
 from werkzeug.utils import secure_filename
@@ -47,13 +48,18 @@ def result():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
             text = textract.process(filepath)
+            os.remove(filepath)
     model = request.form.get('model_select')
-    resp = run_tester(str(text).lower(),model)
+    text = str(text).lower()
+    resp = run_tester(text,model)
     data = resp
+    table = get_table(text)
+    table = table.replace('<table border="1" class="dataframe">','<table border="1" class="dataframe" align="center">')
     return render_template(
         'result.html',
         data=data,
-        error=error)
+        error=error,
+        table = table)
 
 if __name__=='__main__':
     app.run(debug=False)

@@ -6,7 +6,7 @@ import numpy as np
 
 
 def clean_salary(i):
-    i = i.replace('k','').replace('M','').replace('$','').replace('CA','').replace('£','').replace('–','–').split('–')
+    i = i.replace('k','').replace('M','').replace('$','').replace('£','').replace('–','–').split('–')
     return (i)
 
 def avg(i):

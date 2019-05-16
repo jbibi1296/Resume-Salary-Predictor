@@ -101,12 +101,14 @@ def check_your_worth(paragraph,model):
     lower_margin = round(worth - margin,0)
     upper_margin = round(worth + margin,0)
     
-    worth = str(worth)[:-5] + ','+ str(worth)[-5:]
+    str_worth = str(worth)[:-5] + ','+ str(worth)[-5:]
     lower_margin = str(lower_margin)[:-5] + ','+ str(lower_margin)[-5:]
     upper_margin = str(upper_margin)[:-5] + ','+ str(upper_margin)[-5:]
+    lists.append(str_worth[:-2])
+    lists.append(lower_margin[:-2])
+    lists.append(upper_margin[:-2])
     lists.append(worth)
-    lists.append(lower_margin)
-    lists.append(upper_margin)
+    lists.append(margin)
     return lists
 
 def check_all_worths(text):
@@ -129,7 +131,7 @@ def check_all_worths(text):
     for i in ['lr','ls','rd','rf','gb','nn','lr_poly','ls_poly',
               'rd_poly','rf_poly','gb_poly','nn_poly']:
         dic = {}
-        dic['worth'] = check_your_worth(text,i)[0]
-        dic['margin'] = eval(f'{i}_margin')
+        dic['Estimated Salary'] = f'${check_your_worth(text,i)[0]}'
+        dic['Between'] = f'${check_your_worth(text,i)[1]}'+f' - ${check_your_worth(text,i)[2]}'
         pre_df_list.append(dic)
     return pd.DataFrame(pre_df_list).T.rename(columns =column_remap)

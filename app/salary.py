@@ -30,3 +30,8 @@ def run_tester(text,model):
     jj = rr.check_your_worth(text,mapper[model])
     lists.append(jj)
     return lists
+def get_table(text):
+    jj = rr.check_all_worths(text).T
+    html = jj.to_html()
+    return html
+    
