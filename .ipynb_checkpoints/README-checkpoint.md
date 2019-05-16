@@ -69,7 +69,7 @@ Our data had 2 issues:
     2. The estimated salary data was a range of values (EX: $75,000 — $120,000) 
 
 ### [Data Cleaning](./run_models/original/Data_Cleaning.ipynb)
-In order to fix this, I dropped all rows that did not have a salary, and I created a function to go through each cell in the salary column and find the average salary for the range (EX: \\$75,000 - \\$120,000 = \$97,500). 
+In order to fix this, I dropped all rows that did not have a salary, and I created a function to go through each cell in the salary column and find the average salary for the range (EX: \$75,000 - \$120,000 = \$97,500). 
 Once it got all of the averages, I created a new column in the DataFrame to store all of these new numbers. 
 
 In order to run text through a statistic model, we would have to turn our text into numbers. 
@@ -140,7 +140,7 @@ Like before, now that the data was ready to be put through a stats model, I perf
 
 
 
-### [Flask App](./app)
+### [Flask App](./flask_app)
 I worked on a Flask App that allows a user to get their estimated salary in 3 easy steps.
   1. Either input text or drop in a resume/job posting (```.txt, .pdf, or .docx```). 
   2. Choose a model that you would like be used on your text.
