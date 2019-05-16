@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<div style ="padding:15px;">
+</div>
+
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Salary Estimator</h1> 
+        <p>Please enter the text from your resume</p>
+    </div>
+    
+    
+    <form method="POST" action="{{ url_for('result') }}" enctype = "multipart/form-data">
+        
+        <div  class="input-group mb-3" enctype=multipart/form-data>
+            <div class="input-group-prepend">
+                <span class="input-group-text">Upload</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" name="file">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <input id="msg" type="text" class="form-control" type="text" placeholder = 'Enter resume as plain text' name="text" >
+        </div>
+            
+            
+        <div class="select", style="margin-top:10px; margin-bottom:10px;">
+            <select name="model_select" class="form-control">
+            {% for o in data %}
+             <option value="{{ o.name }}">{{ o.name }}</option>
+            {% endfor %}
+            </select>
+        </div>
+        
+        
+        <div>
+            <button type="submit" class="btn btn-success btn-block">Go</button>
+        </div>
+            
+    </form>
+</div>
