@@ -192,4 +192,4 @@ Some of my ideas are:
   
 [Link to my presentation](https://docs.google.com/presentation/d/1KCX0If7V5AGj5c9J1OAnEHshdLtbitGR9u_N2McA5rs/edit?usp=sharing) (Google Slides)
 
-[Link to presentation pdf](./Capstone%20Presentation.pdf) (No animarions :()
+[Link to presentation pdf](./Capstone%20Presentation.pdf) (No animarions :( )
