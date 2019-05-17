@@ -189,3 +189,7 @@ Some of my ideas are:
   - Suggested words to use in your resume.
   - Suggested job postings that best fit your resume.
   - Suggested skills to acquire to make yourself more valuable.
+  
+[Link to my presentation](https://docs.google.com/presentation/d/1KCX0If7V5AGj5c9J1OAnEHshdLtbitGR9u_N2McA5rs/edit?usp=sharing) (Google Slides)
+
+[Link to presentation pdf](./Capstone%20Presentation.pdf) (No animarions :()
