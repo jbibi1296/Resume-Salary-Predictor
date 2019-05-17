@@ -116,7 +116,7 @@ In addition to what was done in the [data acquisition process before](#Original)
 
 Becuase the words were being multiplied, I realized that the vectorizer would need to be tweeked and the ```Binary``` hyper-paramter would need to be set to ```False```
 
-After performing this, we ended up with over **\$39,000** features ($198 ^2$ ). This is a lot of features to throw into a model so I turned to **Sklearn's** Principal Component Analysis (PCA) function. This technique allows you to select the features that are important while still keeping 95% of variance. After running our **39,000** features through a PCA, we came out with **964** features.
+After performing this, we ended up with over **\$39,000** features ($198^2$). This is a lot of features to throw into a model so I turned to **Sklearn's** Principal Component Analysis (PCA) function. This technique allows you to select the features that are important while still keeping 95% of variance. After running our **39,000** features through a PCA, we came out with **964** features.
 
 ### [Statistical Modeling](./run_models/poly/Models.ipynb)
 
@@ -172,6 +172,9 @@ I then decided to place my resume inside of the model to see what it predicted.
 </table>
 </div>
 This is a pretty accurate estimation for entry level jobs as a Data Scientist / Data Analyst in New York City. 
+
+
+##### You can see a video of the flask app being used [here](https://youtu.be/QdGl9-fX5yw)
 
 ## Conclusion
 As you can see, the ```Root Mean Squared Error``` for the models are over 18% better scores than our [original work](#Original) and over 33% better than Glassdoor's! 
